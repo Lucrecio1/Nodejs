@@ -1,16 +1,11 @@
 
-const app = require('express')
-const port = 3000
-const handlebars = require('express-handlebars')
-
+const app = require('express');
+const port = 3000;
 
 //config 
- // templete engine
- app.engine('handlebars', handlebars({defaultLayout: 'main'}))
- app.set('view engine','handlebars')
-
+ // templet
  // conexão
- const { Model } = require('sequelize');
+ 
 const Sequelize =  require('sequelize');
 const sequelize  = new Sequelize('test','root','', {
 host: "localhost",
