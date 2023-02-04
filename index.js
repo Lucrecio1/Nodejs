@@ -1,13 +1,14 @@
 
-const hbs = require()
-const app = require('express');
-const { ExpressHandlebars } = require('express-handlebars');
-const { createRequire } = require('module')
+const app = require('express')
 const port = 3000
+const handlebars = require('express-handlebars')
 
-app.engine('handlebars', hbs({defaultLayout: 'main'}))
 
-  app.engine('handlebars',initViews())
+//config 
+ // templete engine
+ app.engine('handlebars', handlebars({defaultLayout: 'main'}))
+ app.set('view engine','handlebars')
+
  // conexão
  const { Model } = require('sequelize');
 const Sequelize =  require('sequelize');
@@ -17,7 +18,7 @@ dialect:'mysql'
 });
 // rota
 app.get('/cad', function(req,res){
-    res.render('formulario')
+    res.send('Rota de cadastro de')
 })
 app.get('/', (req, res) => res.send('Hello World!'))
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
